@@ -5,45 +5,35 @@ using UnityEngine.InputSystem;
 
 namespace the_haha
 {
-    public class CharControls : MonoBehaviour
+    public class PlayerMovementController : MonoBehaviour
     {
         
         public InputAction moveAction;
         [SerializeField]
         private float moveSpeed = 5.0f;
-        public int hp = 3;
-
-        public Rigidbody rb;
-
-        Vector3 direction;
+        private Rigidbody _rigidBody;
+        private Vector3 _direction;
 
 
         void Start()
         {
-            rb = GetComponent<Rigidbody>();
+            _rigidBody = GetComponent<Rigidbody>();
         }
 
         void OnMove(InputValue pos)
         {
             Vector2 inputPos = pos.Get<Vector2>();
             //Vector3 playerPos = transform.position;
-            direction.x = inputPos.x;
-            direction.z = inputPos.y;
-            direction.Normalize();
-            //rb.velocity += playerPos;
-
-        }
-
-
-        void Update()
-        {
-            //moveAction.Enable();
+            _direction.x = inputPos.x;
+            _direction.z = inputPos.y;
+            _direction.Normalize();
+            //_rigidBody.velocity += playerPos;
         }
 
         private void FixedUpdate()
         {
-            direction.y = rb.velocity.y/moveSpeed;
-            rb.velocity = moveSpeed * direction;
+            _direction.y = _rigidBody.velocity.y/moveSpeed;
+            _rigidBody.velocity = moveSpeed * _direction;
         }
 
     }

@@ -12,21 +12,10 @@ namespace the_haha
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
-            {   
-                //Do something with the player object.
+            {
+                var player = other.GetComponent<PlayerController>();
+                player.Damage(trapData.damage);
             }
-        }
-
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
         }
     }
 }
