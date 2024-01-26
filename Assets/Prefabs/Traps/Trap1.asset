@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Trap1
   m_EditorClassIdentifier: 
   name: Pit of doom
-  damage: 0
-  amusement: 0
+  damage: 2
+  amusement: 3

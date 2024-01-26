@@ -8,18 +8,16 @@ namespace the_haha
         public delegate void GameOverDelegate();
         public event GameOverDelegate OnGameOver;
         private bool _isDecrementing = true;
-        private InterestMeterController _interestMeterController;
         // Start is called before the first frame update
         private new void Awake()
         {
             base.Awake();
-            _interestMeterController = GetComponent<InterestMeterController>();
         }
 
         // Update is called once per frame
         private void Update()
         {
-            if (_isDecrementing) _interestMeterController.DecrementInterestLevelTick();
+            if (_isDecrementing) InterestMeterController.Instance.DecrementInterestLevelTick();
         }
 
         public void GameOver()

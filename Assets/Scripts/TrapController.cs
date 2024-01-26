@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace the_haha
@@ -9,12 +10,12 @@ namespace the_haha
     {
         public TrapData trapData;
 
-        private void OnTriggerEnter(Collider other)
+        void Awake()
         {
-            if (other.CompareTag("Player"))
+            for (var i = 0 ; i < gameObject.transform.childCount; i++)
             {
-                var player = other.GetComponent<PlayerController>();
-                player.Damage(trapData.damage);
+                var child = gameObject.transform.GetChild(i);
+                child.AddComponent<TrapGameObjectInteractions>().TrapDamage = trapData.damage;
             }
         }
     }

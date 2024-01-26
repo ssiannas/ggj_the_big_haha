@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace the_haha
 {
-    public class InterestMeterController : MonoBehaviour
+    public class InterestMeterController : Singleton<InterestMeterController>
     {
         public const int MaxInterestLevel = 100;
         [SerializeField, Range(0, MaxInterestLevel)]
@@ -16,8 +16,9 @@ namespace the_haha
 
         private float _timeToNextInterestDecrease;
 
-        private void Awake()
+        private new void Awake()
         {
+            base.Awake();
             _interestLevelIndicator = GameObject.FindWithTag("InterestMeter").GetComponent<TextMeshProUGUI>();
             _timeToNextInterestDecrease = interestDecreaseTime;
             UpdateInterestLevelIndicator();
@@ -47,12 +48,13 @@ namespace the_haha
 
         private void UpdateInterestLevelIndicator()
         {
+            
             if (interestLevel <= 0)
             {
                 GameController.Instance.GameOver();
             }
-
-            _interestLevelIndicator.text = interestLevel.ToString();
+            if (_interestLevelIndicator)
+                _interestLevelIndicator.text = interestLevel.ToString();
         }
 
     }

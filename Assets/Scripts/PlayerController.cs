@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +20,7 @@ namespace the_haha
                 OnDeath();
             }
         }
-        
+
         private void OnDeath() 
         {
             GameController.Instance.GameOver();
