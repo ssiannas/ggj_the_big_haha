@@ -6,11 +6,8 @@ namespace the_haha
     public class GameController : Singleton<GameController>
     {
         public delegate void GameOverDelegate();
-        public static event GameOverDelegate OnGameOver;
-        
-        [SerializeField]
-        private GameObject deathScreen;
-        
+        public event GameOverDelegate OnGameOver;
+        private bool _isDecrementing = false;
         private InterestMeterController _interestMeterController;
         // Start is called before the first frame update
         private new void Awake()
@@ -22,13 +19,12 @@ namespace the_haha
         // Update is called once per frame
         private void Update()
         {
-            _interestMeterController.DecrementInterestLevelTick(); 
+            if (_isDecrementing) _interestMeterController.DecrementInterestLevelTick();
         }
 
         public void GameOver()
         {
-            deathScreen.SetActive(true);
-            Destroy(_interestMeterController.gameObject);
+            _isDecrementing = false;
             OnGameOver?.Invoke();
         }
     }
