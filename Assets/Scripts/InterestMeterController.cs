@@ -5,7 +5,7 @@ namespace the_haha
 {
     public class InterestMeterController : MonoBehaviour
     {
-        private const int MaxInterestLevel = 50;
+        public const int MaxInterestLevel = 100;
         [SerializeField, Range(0, MaxInterestLevel)]
         private int interestLevel = MaxInterestLevel / 2;
         private TextMeshProUGUI _interestLevelIndicator;
@@ -51,7 +51,9 @@ namespace the_haha
             {
                 GameController.Instance.GameOver();
             }
+
             _interestLevelIndicator.text = interestLevel.ToString();
         }
+
     }
 }
