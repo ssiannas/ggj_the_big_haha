@@ -15,6 +15,8 @@ namespace the_haha
         private int currencyPerTick = 1;
         [SerializeField]
         private bool _isInDungeon = false;
+
+        private bool _isPaused = false;
         
         // Start is called before the first frame update
         private new void Awake()
@@ -25,6 +27,7 @@ namespace the_haha
         // Update is called once per frame
         private void Update()
         {
+            if (_isPaused) return;
             if (_isDecrementing) InterestMeterController.Instance.DecrementInterestLevelTick();
             currency += currencyPerTick * (int)Time.deltaTime;
         }
@@ -36,6 +39,16 @@ namespace the_haha
             _isInDungeon = true;
             _isDecrementing = true;
            InterestMeterController.Instance.ShowInterestMeter(); 
+        }
+
+        public void Pause()
+        {
+            _isPaused = true;
+        }
+        
+        public void Unpause()
+        {
+            _isPaused = false;
         }
         
         public void GameOver()
