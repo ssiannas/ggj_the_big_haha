@@ -8,6 +8,7 @@ namespace the_haha
         public delegate void GameOverDelegate();
         public event GameOverDelegate OnGameOver;
         private bool _isDecrementing = true;
+
         // Start is called before the first frame update
         private new void Awake()
         {
