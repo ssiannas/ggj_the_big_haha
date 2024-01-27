@@ -11,6 +11,8 @@ namespace the_haha
         [SerializeField, InspectorName("Objective Data")]
         private ObjectiveData data;
         private bool _isCompleted = false;
+        [SerializeField, InspectorName("Outline Material")]
+        private Material _outlineMaterial;
         
         private void Awake()
         {
@@ -18,6 +20,7 @@ namespace the_haha
             {
                 var child = gameObject.transform.GetChild(i);
                 var objectiveBehaviour = child.AddComponent<ObjectiveBehaviour>();
+                objectiveBehaviour.SetOutlineMaterial(_outlineMaterial);
                 objectiveBehaviour.OnPlayerCollisionEnter += OnPlayerCollisionEnter;
                 objectiveBehaviour.OnPlayerCollisionExit += OnPlayerCollisionExit;
             }

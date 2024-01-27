@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9273f4e0be0f5734684312a0acbf600e, type: 3}
   m_Name: Obje1
   m_EditorClassIdentifier: 
-  amusement: 0
-  objectiveName: 
-  dialogue: 
+  amusement: 3
+  objectiveName: My obj
+  dialogue: HAHA YOU JUST KILLED ALL HUMANS
