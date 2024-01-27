@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,12 +7,14 @@ namespace the_haha
 {
     public class TrapdoorController : MonoBehaviour
     {
-        Animator animator;
+        private Animator _animator;
+        private float _timeToOpen = 1;
+        private float _trapTimer = 0; 
 
         // Start is called before the first frame update
         void Awake()
         {
-            animator = GetComponent<Animator>();
+            _animator = GetComponent<Animator>();
         }
 
         // Update is called once per frame
@@ -33,19 +36,44 @@ namespace the_haha
             // }
         }
 
+        private void OnCollisionEnter(Collision other)
+        {
+            if (!other.gameObject.CompareTag("Player")) return;
+            PlayCrumblingAnimation();    
+        }
+
+        private void OnCollisionStay(Collision other)
+        {
+            if (!other.gameObject.CompareTag("Player")) return;
+            _trapTimer += Time.deltaTime;
+            if (_trapTimer >= _timeToOpen)
+            {
+                PlayOpenAnimation();
+            }
+        }
+        
+        private void OnCollisionExit(Collision other)
+        {
+            if (!other.gameObject.CompareTag("Player")) return;
+            if (_trapTimer < _timeToOpen)
+            {
+                PlayClosedAnimation();
+            }
+        }
+
         public void PlayClosedAnimation()
         {
-            animator.Play("Trapdoor_Closed");
+            _animator.Play("Trapdoor_Closed");
         }
 
         public void PlayCrumblingAnimation()
         {
-            animator.Play("Trapdoor_Crumbling");
+            _animator.Play("Trapdoor_Crumbling");
         }
 
         public void PlayOpenAnimation()
         {
-            animator.Play("Trapdoor_Open");
+            _animator.Play("Trapdoor_Open");
         }
     }
 }
