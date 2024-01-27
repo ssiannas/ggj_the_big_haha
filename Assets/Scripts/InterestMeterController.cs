@@ -19,10 +19,20 @@ namespace the_haha
         private new void Awake()
         {
             base.Awake();
-            _interestLevelIndicator = GameObject.FindWithTag("InterestMeter").GetComponent<TextMeshProUGUI>();
+            var interestMeter = GameObject.FindWithTag("InterestMeter");
+            interestMeter.SetActive(false);
+            // TODO: Should eplace with a proper class
+            _interestLevelIndicator = interestMeter.GetComponentInChildren<TextMeshProUGUI>();
             _timeToNextInterestDecrease = interestDecreaseTime;
             UpdateInterestLevelIndicator();
         }
+        
+        public void ShowInterestMeter()
+        {
+            var interestMeter = GameObject.FindWithTag("InterestMeter");
+            interestMeter.SetActive(true);
+        }
+        
         public void DecrementInterestLevelByAmount(int amount=1)
         {
             interestLevel -= amount;
