@@ -29,7 +29,7 @@ namespace the_haha
         {
             if (_isPaused) return;
             if (_isDecrementing) InterestMeterController.Instance.DecrementInterestLevelTick();
-            currency += currencyPerTick * (int)Time.deltaTime;
+            currency += currencyPerTick;
         }
 
         public void EnterDungeon()
