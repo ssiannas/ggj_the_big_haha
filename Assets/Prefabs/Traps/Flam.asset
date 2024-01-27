@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd0e591487bde224a9157e6117532168, type: 3}
   m_Name: Flam
   m_EditorClassIdentifier: 
-  trapName: 
-  damage: 0
-  amusement: 0
+  trapName: Flamethrowther
+  damage: 1
+  amusement: 2
