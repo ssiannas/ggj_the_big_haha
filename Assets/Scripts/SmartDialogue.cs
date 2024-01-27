@@ -61,6 +61,7 @@ namespace the_haha
             }
             else 
             {
+                textComponent.text = string.Empty;
                 gameObject.SetActive(false);
             }
 
