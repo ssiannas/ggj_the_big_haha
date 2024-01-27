@@ -4,15 +4,16 @@ using UnityEngine;
 
 namespace the_haha
 {
-    public class TrapGameObjectInteractions : MonoBehaviour
+    public class TrapBehaviour : MonoBehaviour
     {
-        public TrapController TrapCtrl { get; set; }
-
+        public delegate void PlayerColisionDelegate (PlayerController player);
+        public event PlayerColisionDelegate OnPlayerCollisionEnter;
+        
         void OnCollisionEnter(Collision other)
         {
             if (!other.gameObject.CompareTag("Player")) return;
             var player = other.gameObject.GetComponent<PlayerController>();
-            TrapCtrl.OnPlayerCollision(player);
+            OnPlayerCollisionEnter?.Invoke(player);
         }
     }
 }
