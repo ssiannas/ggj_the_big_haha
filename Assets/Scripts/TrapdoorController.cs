@@ -9,7 +9,8 @@ namespace the_haha
     {
         private Animator _animator;
         private float _timeToOpen = 1;
-        private float _trapTimer = 0; 
+        private float _trapTimer = 0;
+        [SerializeField] BoxCollider _trapdoorCollider;
 
         // Start is called before the first frame update
         void Awake()
@@ -39,7 +40,7 @@ namespace the_haha
         private void OnCollisionEnter(Collision other)
         {
             if (!other.gameObject.CompareTag("Player")) return;
-            PlayCrumblingAnimation();    
+            PlayCrumblingAnimation();
         }
 
         private void OnCollisionStay(Collision other)
@@ -48,10 +49,11 @@ namespace the_haha
             _trapTimer += Time.deltaTime;
             if (_trapTimer >= _timeToOpen)
             {
+                _trapdoorCollider.enabled = false;
                 PlayOpenAnimation();
             }
         }
-        
+
         private void OnCollisionExit(Collision other)
         {
             if (!other.gameObject.CompareTag("Player")) return;

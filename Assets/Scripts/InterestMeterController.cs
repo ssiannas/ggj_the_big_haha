@@ -66,5 +66,10 @@ namespace the_haha
                 _interestLevelIndicator.text = interestLevel.ToString();
         }
 
+
+        public void ReduceDecayRate()
+        {
+            interestDecreaseTime = interestDecreaseTime * 1.5f;
+        }
     }
 }

@@ -87,6 +87,10 @@ namespace the_haha
             }
         }
 
+        public void IncreaseSpeed()
+        {
+            moveSpeed = moveSpeed * 1.5f;
+        }
     }
 
 }

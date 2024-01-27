@@ -9,9 +9,10 @@ namespace the_haha
     {
         [SerializeField, InspectorName("PowerUp Data")]
         private PowerUpData data;
-        private bool _isCompleted = false;
+        private bool _isPurchased = false;
         [SerializeField, InspectorName("Outline Material")]
         private Material _outlineMaterial;
+
 
         private void Awake()
         {
@@ -29,22 +30,41 @@ namespace the_haha
         private void OnPlayerCollisionEnter(PlayerController player)
         {
             // 1. Add to player objectives
-           // player.AddPowerUp(this);
+           player.AddPowerUp(this);
         }
 
         private void OnPlayerCollisionExit(PlayerController player)
         {
-           // player.RemovePowerUp(this);
+           player.RemovePowerUp(this);
         }
 
-        public void CompleteObjective()
+        public void ActivatePowerUp(PlayerController player)
         {
-            if (_isCompleted) return;
-            _isCompleted = true;
-            //InterestMeterController.Instance.IncrementInterestLevelByAmount(data.amusement);
-            //Debug.Log(data.dialogue);
-            //SmartDialogue.Instance.lines[0] = data.dialogue;
-            //SmartDialogue.Instance.StartDialogue();
+            PowerUpType type = data.PowerUpType;
+            switch(type)
+            {
+                case PowerUpType.SPEED:
+                    {
+                        player.GetComponent<PlayerMovementController>().IncreaseSpeed();
+                        break;
+                    }
+                case PowerUpType.DECAY_DOWN:
+                    {
+                        InterestMeterController.Instance.ReduceDecayRate();
+                        break;
+                    }
+                case PowerUpType.MONEY_UP:
+                    {
+                        GameController.Instance.AddCurrencyPerTcik();
+                        break;
+                    }
+                case PowerUpType.DMG_DOWN:
+                    {
+                        break;
+                    }
+
+            }
+            Destroy(gameObject);
         }
     }
 }

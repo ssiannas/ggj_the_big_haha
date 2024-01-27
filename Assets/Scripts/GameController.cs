@@ -10,7 +10,8 @@ namespace the_haha
         private bool _isDecrementing = true;
         
         [SerializeField, InspectorName("Haha bucks")]
-        private int currency = 0;
+        public int currency = 50;
+        private float realcurrency = 50.0f;
         [SerializeField]
         private int currencyPerTick = 1;
         [SerializeField]
@@ -29,7 +30,8 @@ namespace the_haha
         {
             if (_isPaused) return;
             if (_isDecrementing) InterestMeterController.Instance.DecrementInterestLevelTick();
-            currency += currencyPerTick;
+            realcurrency += currencyPerTick * Time.deltaTime;
+            currency = (int)realcurrency;
         }
 
         public void EnterDungeon()
@@ -55,6 +57,23 @@ namespace the_haha
         {
             _isDecrementing = false;
             OnGameOver?.Invoke();
+        }
+
+        public int GetCoins()
+        {
+            return currency;
+        }
+
+        public void SetCoins(int coins)
+        {
+            currency = coins;
+            realcurrency = coins;
+        }
+
+
+        public void AddCurrencyPerTcik()
+        {
+            currencyPerTick ++;
         }
     }
 }
