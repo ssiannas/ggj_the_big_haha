@@ -4950,6 +4950,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flameParticles: {fileID: 4878645004420017579}
+  toggleInterval: 1
+  flameDurationSec: 1
+  damageInterval: 0.5
 --- !u!4 &2890293021196664076 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d14554f848b2e80498aa35cc6ae47554,
