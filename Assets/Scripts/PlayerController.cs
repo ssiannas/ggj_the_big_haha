@@ -11,25 +11,28 @@ namespace the_haha
     public class PlayerController : MonoBehaviour
     {
         [SerializeField, InspectorName("Hit Points")]
-        private int hitPoints = 3;
+        private float hitPoints = 100.0f;
+        private float damagecoef = 1.0f;
         private List<ObjectiveController> _objectives;
+        private List<PowerUpController> _powerups;
         public InputAction actionAction;
-        
+
         void Start()
         {
             _objectives = new List<ObjectiveController>();
+            _powerups = new List<PowerUpController>();
         }
-        
+
         public void Damage(int amount = 1)
         {
-            hitPoints -= amount;
+            hitPoints -= amount * damagecoef;
             if (hitPoints <= 0)
             {
                 OnDeath();
             }
         }
 
-        private void OnDeath() 
+        private void OnDeath()
         {
             GameController.Instance.GameOver();
         }
@@ -38,23 +41,48 @@ namespace the_haha
         {
             _objectives.Add(objective);
         }
-        
+
         public void RemoveObjective(ObjectiveController objective)
         {
             _objectives.Remove(objective);
         }
-        
+
+        public void AddPowerUp(PowerUpController powerUp)
+        {
+            _powerups.Add(powerUp);
+        }
+
+        public void RemovePowerUp(PowerUpController powerUp)
+        {
+            _powerups.Remove(powerUp);
+        }
+
         private void ActionPressed()
         {
             foreach (var objective in _objectives)
             {
                 objective.CompleteObjective();
             }
+            foreach (var powerup in _powerups)
+            {
+
+                var coins = GameController.Instance.GetCoins();
+                if (coins >= powerup.GetPowerUpData().cost)
+                {
+                    GameController.Instance.SetCoins(coins - powerup.GetPowerUpData().cost);
+                    powerup.ActivatePowerUp(this);
+                }             
+            }
         }
-        
+
         private void OnFire(InputValue value)
-        { 
+        {
             ActionPressed();
+        }
+
+        public void SetDamageCoef()
+        {
+            damagecoef *= 0.75f;
         }
     }
 }

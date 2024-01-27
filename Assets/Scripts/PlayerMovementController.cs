@@ -80,6 +80,10 @@ namespace the_haha
             _rigidBody.velocity = moveSpeed * _direction;
         }
 
+        public void IncreaseSpeed()
+        {
+            moveSpeed = moveSpeed * 1.5f;
+        }
     }
 
 }
