@@ -457,7 +457,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523844924}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
   m_Name: 
@@ -523,7 +523,9 @@ MonoBehaviour:
   textComponent: {fileID: 1439535669}
   lines:
   - Name everyone john
-  - 
+  - Make all ice cream have dirt flavour
+  - to xristo sou
+  - tha sou skisw tin soufra
   textSpeed: 0.1
 --- !u!1 &574426617
 GameObject:
@@ -1502,7 +1504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c41538ca2a353245a8b29c36f8c6ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interestLevel: 100
+  interestLevel: 11
   interestDecreaseTime: 0.5
 --- !u!1 &2017898658
 GameObject:

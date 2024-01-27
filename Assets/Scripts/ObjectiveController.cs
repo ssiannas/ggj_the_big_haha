@@ -44,6 +44,8 @@ namespace the_haha
             _isCompleted = true;
             InterestMeterController.Instance.IncrementInterestLevelByAmount(data.amusement);
             Debug.Log(data.dialogue);
+            SmartDialogue.Instance.lines[0] = data.dialogue;
+            SmartDialogue.Instance.StartDialogue();
         }
     }
 }

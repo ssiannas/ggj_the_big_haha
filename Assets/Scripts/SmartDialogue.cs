@@ -5,7 +5,7 @@ using TMPro;
 
 namespace the_haha
 {
-    public class SmartDialogue : MonoBehaviour
+    public class SmartDialogue :Singleton<SmartDialogue>
     {
         public TextMeshProUGUI textComponent;
         public string[] lines;
@@ -15,7 +15,8 @@ namespace the_haha
         void Start()
         {
             textComponent.text = string.Empty;
-            StartDialogue();
+            gameObject.SetActive(false);
+            //StartDialogue();
         }
 
         // Update is called once per frame
@@ -35,8 +36,9 @@ namespace the_haha
             }
         }
 
-        void StartDialogue()
+        public void StartDialogue()
         {
+            gameObject.SetActive(true);
             index = 0;
             StartCoroutine(TypeLine());
         }
