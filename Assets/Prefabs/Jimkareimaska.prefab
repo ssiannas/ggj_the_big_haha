@@ -170,6 +170,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPoints: 3
+  actionAction:
+    m_Name: Action
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f885c943-1e65-4bfd-b65e-4131c9e25ca0
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &3575890054150015122
 MonoBehaviour:
   m_ObjectHideFlags: 0
