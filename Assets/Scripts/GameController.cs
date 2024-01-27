@@ -16,7 +16,6 @@ namespace the_haha
         [SerializeField]
         private bool _isInDungeon = false;
         
-        
         // Start is called before the first frame update
         private new void Awake()
         {
