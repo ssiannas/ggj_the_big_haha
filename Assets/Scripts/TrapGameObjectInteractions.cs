@@ -6,18 +6,13 @@ namespace the_haha
 {
     public class TrapGameObjectInteractions : MonoBehaviour
     {
-        public int TrapDamage { get; set; }
-        
-        public TrapGameObjectInteractions(int trapDamage)
-        {
-            TrapDamage = trapDamage;
-        }
-        
+        public TrapController TrapCtrl { get; set; }
+
         void OnCollisionEnter(Collision other)
         {
             if (!other.gameObject.CompareTag("Player")) return;
             var player = other.gameObject.GetComponent<PlayerController>();
-            player.Damage(TrapDamage);
+            TrapCtrl.OnPlayerCollision(player);
         }
     }
 }

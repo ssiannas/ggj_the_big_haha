@@ -15,8 +15,14 @@ namespace the_haha
             for (var i = 0 ; i < gameObject.transform.childCount; i++)
             {
                 var child = gameObject.transform.GetChild(i);
-                child.AddComponent<TrapGameObjectInteractions>().TrapDamage = trapData.damage;
+                child.AddComponent<TrapGameObjectInteractions>().TrapCtrl = this;
             }
+        }
+        
+        public void OnPlayerCollision(PlayerController player)
+        {
+            player.Damage(trapData.damage);
+            InterestMeterController.Instance.IncrementInterestLevelByAmount(trapData.amusement);
         }
     }
 }
