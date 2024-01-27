@@ -71,6 +71,7 @@ namespace the_haha
             _direction.z = inputPos.y;
             _direction.Normalize();
             //_rigidBody.velocity += playerPos;
+            
         }
         
 
@@ -78,6 +79,12 @@ namespace the_haha
         {
             _direction.y = _rigidBody.velocity.y/moveSpeed;
             _rigidBody.velocity = moveSpeed * _direction;
+            
+            if (_direction != Vector3.zero)
+            {
+                Quaternion toRotation = Quaternion.LookRotation(_direction, Vector3.up);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, Time.deltaTime * 500f);
+            }
         }
 
         public void IncreaseSpeed()

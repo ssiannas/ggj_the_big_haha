@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd0e591487bde224a9157e6117532168, type: 3}
-  m_Name: trap2
+  m_Name: Floortrap
   m_EditorClassIdentifier: 
-  name: 
-  damage: 33
-  amusement: 2
+  trapName: Trapdoor
+  damage: 0
+  amusement: 5
