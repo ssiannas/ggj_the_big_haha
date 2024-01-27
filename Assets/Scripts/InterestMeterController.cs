@@ -48,7 +48,6 @@ namespace the_haha
 
         private void UpdateInterestLevelIndicator()
         {
-            
             if (interestLevel <= 0)
             {
                 GameController.Instance.GameOver();

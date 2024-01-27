@@ -15,11 +15,12 @@ namespace the_haha
             for (var i = 0 ; i < gameObject.transform.childCount; i++)
             {
                 var child = gameObject.transform.GetChild(i);
-                child.AddComponent<TrapGameObjectInteractions>().TrapCtrl = this;
+                
+                child.AddComponent<TrapBehaviour>().OnPlayerCollisionEnter += OnPlayerCollision;
             }
         }
         
-        public void OnPlayerCollision(PlayerController player)
+        private void OnPlayerCollision(PlayerController player)
         {
             player.Damage(trapData.damage);
             InterestMeterController.Instance.IncrementInterestLevelByAmount(trapData.amusement);
