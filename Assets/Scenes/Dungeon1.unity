@@ -4129,8 +4129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d96ef5c88b813ef4aac1abd44d0300e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1794161975}
-  smoothTime: 1.1
+  player: {fileID: 1794161975}
 --- !u!1001 &1119640631
 PrefabInstance:
   m_ObjectHideFlags: 0
