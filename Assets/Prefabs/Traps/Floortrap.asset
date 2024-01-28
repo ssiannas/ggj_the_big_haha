@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trapName: Trapdoor
   damage: 0
-  amusement: 5
+  amusement: 0

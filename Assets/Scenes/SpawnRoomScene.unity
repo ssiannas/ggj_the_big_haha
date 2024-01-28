@@ -2617,7 +2617,7 @@ PrefabInstance:
     - target: {fileID: 5197809067305110755, guid: 2504ef4859bc737458897adda79aeaf5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 115.08002
       objectReference: {fileID: 0}
     - target: {fileID: 5197809067305110755, guid: 2504ef4859bc737458897adda79aeaf5,
         type: 3}
@@ -2762,7 +2762,7 @@ PrefabInstance:
     - target: {fileID: 6851356976500838175, guid: 2504ef4859bc737458897adda79aeaf5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 620
       objectReference: {fileID: 0}
     - target: {fileID: 6851356976500838175, guid: 2504ef4859bc737458897adda79aeaf5,
         type: 3}
@@ -8343,6 +8343,12 @@ MonoBehaviour:
   - source: {fileID: 0}
     clip: {fileID: 8300000, guid: fec5825c4c51b58448831a3c6b0ee9c6, type: 3}
     soundName: ObjectiveComplete
+    volume: 1
+    pitch: 1
+    loop: 0
+  - source: {fileID: 0}
+    clip: {fileID: 8300000, guid: f28097b26ca47cd40bce95a2aabec819, type: 3}
+    soundName: FallingSound
     volume: 1
     pitch: 1
     loop: 0

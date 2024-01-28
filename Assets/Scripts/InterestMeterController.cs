@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -9,10 +10,8 @@ namespace the_haha
         [SerializeField, Range(0, MaxInterestLevel)]
         private int interestLevel = MaxInterestLevel / 2;
         private TextMeshProUGUI _interestLevelIndicator;
-        
-        
-        [SerializeField, Range(0, 10)]
-        private float interestDecreaseTime = 5;
+
+        [SerializeField, Range(0, 10)] private float interestDecreaseTime = 1/6.25f;
 
         private float _timeToNextInterestDecrease;
 
@@ -23,7 +22,7 @@ namespace the_haha
         
         public void SetUpInterestMeter()
         {
-             var interestMeter = GameObject.FindWithTag("InterestMeter");
+            Reset();
             _timeToNextInterestDecrease = interestDecreaseTime;
             UpdateInterestLevelIndicator();
         }
@@ -70,6 +69,12 @@ namespace the_haha
         public void ReduceDecayRate()
         {
             interestDecreaseTime = interestDecreaseTime * 1.5f;
+        }
+
+        public void Reset()
+        {
+            interestLevel = MaxInterestLevel / 2;
+            UpdateInterestLevelIndicator();
         }
     }
 }
