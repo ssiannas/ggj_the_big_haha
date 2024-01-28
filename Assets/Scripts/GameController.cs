@@ -1,6 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
+
+using TMPro;
+
 using UnityEngine.SceneManagement;
+
 
 namespace the_haha
 {
@@ -19,9 +23,13 @@ namespace the_haha
         [SerializeField]
         private bool _isInDungeon = false;
         private bool _isPaused = false;
+
+        private TextMeshProUGUI _coinCounter;
+
+
         [SerializeField] GameObject _playerPrefab;
         [SerializeField] private Transform _spawnPoint;
-        // Start is called before the first frame update
+
         private new void Awake()
         {
             base.Awake();
@@ -45,8 +53,10 @@ namespace the_haha
         {
             if (_isPaused) return;
             if (_isDecrementing) InterestMeterController.Instance.DecrementInterestLevelTick();
+
             _realcurrency += currencyPerTick * Time.deltaTime;
             currency = (int)_realcurrency;
+            showCurrency();
         }
         
         
@@ -91,6 +101,14 @@ namespace the_haha
         public void AddCurrencyPerTcik()
         {
             currencyPerTick ++;
+        }
+
+        private void showCurrency()
+        {
+
+            var coinCounter = GameObject.FindWithTag("Coins");
+            _coinCounter = coinCounter.GetComponentInChildren<TextMeshProUGUI>();
+            _coinCounter.text = currency.ToString();
         }
     }
 }

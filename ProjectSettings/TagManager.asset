@@ -7,6 +7,8 @@ TagManager:
   - InterestMeter
   - DeathScreen
   - Trap
+  - HP
+  - Coins
   - SpawnPoint
   layers:
   - Default
