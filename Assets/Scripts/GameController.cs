@@ -11,18 +11,24 @@ namespace the_haha
         
         [SerializeField, InspectorName("Haha bucks")]
         public int currency = 50;
-        private float realcurrency = 50.0f;
+        private float _realcurrency = 50.0f;
         [SerializeField]
         private int currencyPerTick = 1;
         [SerializeField]
         private bool _isInDungeon = false;
-
         private bool _isPaused = false;
-        
+        [SerializeField] GameObject _playerPrefab;
+        [SerializeField] private Transform _spawnPoint;
         // Start is called before the first frame update
         private new void Awake()
         {
             base.Awake();
+            _spawnPoint = GameObject.FindWithTag("SpawnPoint").transform;
+            var playerRotation = _spawnPoint.rotation;
+            var player = Instantiate(_playerPrefab, _spawnPoint.position, playerRotation);
+            var mainCamera = GameObject.FindWithTag("MainCamera");
+            var cameraFollow = mainCamera.GetComponent<CameraFollow>();
+            cameraFollow.SetTarget(player);
         }
 
         // Update is called once per frame
@@ -30,8 +36,8 @@ namespace the_haha
         {
             if (_isPaused) return;
             if (_isDecrementing) InterestMeterController.Instance.DecrementInterestLevelTick();
-            realcurrency += currencyPerTick * Time.deltaTime;
-            currency = (int)realcurrency;
+            _realcurrency += currencyPerTick * Time.deltaTime;
+            currency = (int)_realcurrency;
         }
 
         public void EnterDungeon()
@@ -67,7 +73,7 @@ namespace the_haha
         public void SetCoins(int coins)
         {
             currency = coins;
-            realcurrency = coins;
+            _realcurrency = coins;
         }
 
 
