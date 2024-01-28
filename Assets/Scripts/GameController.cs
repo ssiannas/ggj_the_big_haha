@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 namespace the_haha
 {
@@ -18,7 +19,9 @@ namespace the_haha
         private bool _isInDungeon = false;
 
         private bool _isPaused = false;
-        
+
+        private TextMeshProUGUI _coinCounter;
+
         // Start is called before the first frame update
         private new void Awake()
         {
@@ -32,6 +35,7 @@ namespace the_haha
             if (_isDecrementing) InterestMeterController.Instance.DecrementInterestLevelTick();
             realcurrency += currencyPerTick * Time.deltaTime;
             currency = (int)realcurrency;
+            showCurrency();
         }
 
         public void EnterDungeon()
@@ -74,6 +78,14 @@ namespace the_haha
         public void AddCurrencyPerTcik()
         {
             currencyPerTick ++;
+        }
+
+        private void showCurrency()
+        {
+
+            var coinCounter = GameObject.FindWithTag("Coins");
+            _coinCounter = coinCounter.GetComponentInChildren<TextMeshProUGUI>();
+            _coinCounter.text = currency.ToString();
         }
     }
 }
