@@ -7366,9 +7366,21 @@ MonoBehaviour:
   - source: {fileID: 0}
     clip: {fileID: 8300000, guid: cf85c69b0feb2b843bd8b985a63805db, type: 3}
     soundName: EvilLaugh
-    volume: 0.7
-    pitch: 0
+    volume: 1
+    pitch: 1
+    loop: 0
+  - source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 43a83b401a944eb48b217d5bc5be921b, type: 3}
+    soundName: Walk
+    volume: 1
+    pitch: 1
     loop: 1
+  - source: {fileID: 0}
+    clip: {fileID: 8300000, guid: fec5825c4c51b58448831a3c6b0ee9c6, type: 3}
+    soundName: ObjectiveComplete
+    volume: 1
+    pitch: 1
+    loop: 0
 --- !u!4 &2059428829
 Transform:
   m_ObjectHideFlags: 0
