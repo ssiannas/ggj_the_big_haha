@@ -61,8 +61,11 @@ namespace the_haha
             {
                 GameController.Instance.GameOver();
             }
-            if (_interestLevelIndicator)
-                _interestLevelIndicator.text = interestLevel.ToString();
+            var interestMeter = GameObject.FindWithTag("InterestMeter");
+
+            interestMeter.GetComponent<ProgressBar>().SetProgress((float)interestLevel / MaxInterestLevel);
+            //ProgressBar.Instance.SetProgress((float)interestLevel/MaxInterestLevel);
+
         }
 
 
