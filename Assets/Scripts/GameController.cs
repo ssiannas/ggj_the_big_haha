@@ -1,5 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
+
 using TMPro;
+
+using UnityEngine.SceneManagement;
+
 
 namespace the_haha
 {
@@ -12,35 +17,50 @@ namespace the_haha
         
         [SerializeField, InspectorName("Haha bucks")]
         public int currency = 50;
-        private float realcurrency = 50.0f;
+        private float _realcurrency = 50.0f;
         [SerializeField]
         private int currencyPerTick = 1;
         [SerializeField]
         private bool _isInDungeon = false;
-
         private bool _isPaused = false;
 
         private TextMeshProUGUI _coinCounter;
 
-        // Start is called before the first frame update
+
+        [SerializeField] GameObject _playerPrefab;
+        [SerializeField] private Transform _spawnPoint;
+
         private new void Awake()
         {
             base.Awake();
+            SpawnPlayer();
         }
 
+        private void SpawnPlayer()
+        {
+            _spawnPoint = GameObject.FindWithTag("SpawnPoint").transform;
+            var playerRotation = _spawnPoint.rotation;
+            var player = Instantiate(_playerPrefab, _spawnPoint.position, playerRotation);
+            var mainCamera = GameObject.FindWithTag("MainCamera");
+            var cameraFollow = mainCamera.GetComponent<CameraFollow>();
+            cameraFollow.SetTarget(player);
+        }
         // Update is called once per frame
         private void Update()
         {
             if (_isPaused) return;
             if (_isDecrementing) InterestMeterController.Instance.DecrementInterestLevelTick();
-            realcurrency += currencyPerTick * Time.deltaTime;
-            currency = (int)realcurrency;
+
+            _realcurrency += currencyPerTick * Time.deltaTime;
+            currency = (int)_realcurrency;
             showCurrency();
         }
-
+        
+        
         public void EnterDungeon()
         {
-            // Load dungeon scene
+            //hardcoded
+            SceneManager.LoadScene(1);
             // start timers
             _isInDungeon = true;
             _isDecrementing = true;
@@ -71,7 +91,7 @@ namespace the_haha
         public void SetCoins(int coins)
         {
             currency = coins;
-            realcurrency = coins;
+            _realcurrency = coins;
         }
 
 

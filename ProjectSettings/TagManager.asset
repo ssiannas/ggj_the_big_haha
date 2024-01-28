@@ -9,6 +9,7 @@ TagManager:
   - Trap
   - HP
   - Coins
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
