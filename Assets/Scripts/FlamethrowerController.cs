@@ -15,6 +15,7 @@ namespace the_haha
         [SerializeField] private float damageInterval = 1;
         private float _currentTimer = 0f;
         private int _damage;
+        private int _amusement;
         private bool _isActive = false;
         [SerializeField] 
         // Start is called before the first frame update
@@ -22,6 +23,7 @@ namespace the_haha
         {
             flameCollider = GetComponent<BoxCollider>();
             _damage = GetComponentInParent<TrapController>().trapData.damage;
+            _amusement = GetComponentInParent<TrapController>().trapData.amusement;
             SetFlameActive(_isActive);
         }
 
@@ -66,6 +68,7 @@ namespace the_haha
             {
                 var player = other.gameObject.GetComponent<PlayerController>();
                 player.Damage(_damage);
+                InterestMeterController.Instance.IncrementInterestLevelByAmount(_amusement);
                 _currentTimer = 0f;
             }
         }
