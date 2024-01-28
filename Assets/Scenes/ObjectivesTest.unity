@@ -1539,6 +1539,8 @@ MonoBehaviour:
   currency: 49
   currencyPerTick: 1
   _isInDungeon: 0
+  _playerPrefab: {fileID: 0}
+  _spawnPoint: {fileID: 0}
 --- !u!114 &1959667712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1869,6 +1871,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: hp
       objectReference: {fileID: 0}
+    - target: {fileID: 1095876803019183923, guid: 4d6167c261ff3ec41aaf05b049467f2c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1886,6 +1893,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: hahaha
+      objectReference: {fileID: 0}
+    - target: {fileID: 1765588297740250449, guid: ad8cf7ed9a97fbc4db3ada310d11f183,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1765588297740250450, guid: ad8cf7ed9a97fbc4db3ada310d11f183,
         type: 3}

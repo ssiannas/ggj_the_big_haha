@@ -20,7 +20,7 @@ namespace the_haha
         {
             base.Awake();
             var interestMeter = GameObject.FindWithTag("InterestMeter");
-            interestMeter.SetActive(false);
+            //interestMeter.SetActive(false);
             _interestLevelIndicator = interestMeter.GetComponentInChildren<TextMeshProUGUI>();
             _timeToNextInterestDecrease = interestDecreaseTime;
             UpdateInterestLevelIndicator();

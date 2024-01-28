@@ -38,7 +38,9 @@ namespace the_haha
 
         private void SpawnPlayer()
         {
-            _spawnPoint = GameObject.FindWithTag("SpawnPoint").transform;
+            var sp = GameObject.FindWithTag("SpawnPoint");
+            if (sp == null) return;
+            _spawnPoint = sp.transform;
             var playerRotation = _spawnPoint.rotation;
             var player = Instantiate(_playerPrefab, _spawnPoint.position, playerRotation);
             var mainCamera = GameObject.FindWithTag("MainCamera");
