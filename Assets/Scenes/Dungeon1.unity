@@ -4135,7 +4135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d96ef5c88b813ef4aac1abd44d0300e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1794161975}
+  player: {fileID: 0}
 --- !u!1001 &1119640631
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7775,6 +7775,8 @@ MonoBehaviour:
   currency: 0
   currencyPerTick: 1
   _isInDungeon: 1
+  _playerPrefab: {fileID: 0}
+  _spawnPoint: {fileID: 0}
 --- !u!114 &1760069662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7877,12 +7879,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1193910011734414334, guid: 4237682f2fa42c347a13d76b3257951a,
     type: 3}
   m_PrefabInstance: {fileID: 1786737672}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1794161975 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5115303405930563774, guid: ca50915f4cb82dd4baa29ba1597aebcf,
-    type: 3}
-  m_PrefabInstance: {fileID: 2096694149}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1814107169
 PrefabInstance:
@@ -9498,74 +9494,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2089436438}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &2096694149
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5115303405930563774, guid: ca50915f4cb82dd4baa29ba1597aebcf,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.0002356
-      objectReference: {fileID: 0}
-    - target: {fileID: 5115303405930563774, guid: ca50915f4cb82dd4baa29ba1597aebcf,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.9699999
-      objectReference: {fileID: 0}
-    - target: {fileID: 5115303405930563774, guid: ca50915f4cb82dd4baa29ba1597aebcf,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 7.696983
-      objectReference: {fileID: 0}
-    - target: {fileID: 5115303405930563774, guid: ca50915f4cb82dd4baa29ba1597aebcf,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5115303405930563774, guid: ca50915f4cb82dd4baa29ba1597aebcf,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.000000021855694
-      objectReference: {fileID: 0}
-    - target: {fileID: 5115303405930563774, guid: ca50915f4cb82dd4baa29ba1597aebcf,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5115303405930563774, guid: ca50915f4cb82dd4baa29ba1597aebcf,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5115303405930563774, guid: ca50915f4cb82dd4baa29ba1597aebcf,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5115303405930563774, guid: ca50915f4cb82dd4baa29ba1597aebcf,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5115303405930563774, guid: ca50915f4cb82dd4baa29ba1597aebcf,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5599916026682020356, guid: ca50915f4cb82dd4baa29ba1597aebcf,
-        type: 3}
-      propertyPath: m_Name
-      value: Jimkareimaska
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ca50915f4cb82dd4baa29ba1597aebcf, type: 3}
 --- !u!1001 &2097646428
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10191,7 +10119,6 @@ SceneRoots:
   - {fileID: 230765549}
   - {fileID: 799627920}
   - {fileID: 1590655449}
-  - {fileID: 2096694149}
   - {fileID: 1760069663}
   - {fileID: 861332344}
   - {fileID: 1846150844}
