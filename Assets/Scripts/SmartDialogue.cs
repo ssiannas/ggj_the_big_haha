@@ -8,15 +8,14 @@ namespace the_haha
     public class SmartDialogue :Singleton<SmartDialogue>
     {
         public TextMeshProUGUI textComponent;
-        public string[] lines;
-        public float textSpeed;
+        public List<string> lines;
+        public float textSpeed = 0.1f;
         private int index;
         // Start is called before the first frame update
         void Start()
         {
             textComponent.text = string.Empty;
             gameObject.SetActive(false);
-            //StartDialogue();
         }
 
         // Update is called once per frame
@@ -24,7 +23,7 @@ namespace the_haha
         {
             if(Input.GetMouseButtonDown(0))
             {
-                if (textComponent.text == lines[index])
+                if (lines.Count > 0)
                 {
                     NextLine();
                 }
@@ -35,7 +34,23 @@ namespace the_haha
                 }
             }
         }
-
+        
+        public void AddLineEnd(string line)
+        {
+            lines.Add(line);
+        }
+        
+        public void AddLineStart(string line)
+        {
+            lines.Insert(0, line);
+        }
+        
+        public void PopLine()
+        {
+            lines.RemoveAt(0);
+            index--;
+        }
+        
         public void StartDialogue()
         {
             gameObject.SetActive(true);
@@ -49,11 +64,12 @@ namespace the_haha
                 textComponent.text += c;
                 yield return new WaitForSeconds(textSpeed);
             }
+            PopLine();
         }
 
         void NextLine()
         {
-            if (index < lines.Length - 1)
+            if (index < lines.Count - 1)
             {
                 index++;
                 textComponent.text = string.Empty;
