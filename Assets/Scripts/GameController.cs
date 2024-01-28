@@ -28,7 +28,7 @@ namespace the_haha
         private bool _isPaused = false;
 
         private TextMeshProUGUI _coinCounter;
-
+        private GameObject _player = null;
 
         [SerializeField] GameObject _playerPrefab;
         [SerializeField] private Transform _spawnPoint;
@@ -63,10 +63,20 @@ namespace the_haha
             if (sp == null) return;
             _spawnPoint = sp.transform;
             var playerRotation = _spawnPoint.rotation;
-            var player = Instantiate(_playerPrefab, _spawnPoint.position, playerRotation);
+            if (_player == null)
+            {
+                _player = Instantiate(_playerPrefab, _spawnPoint.position, playerRotation);
+                DontDestroyOnLoad(_player.gameObject);
+            }
+            else
+            {
+                _player.transform.position = _spawnPoint.position;
+                _player.transform.rotation = _spawnPoint.rotation;
+            }
+
             var mainCamera = GameObject.FindWithTag("MainCamera");
             var cameraFollow = mainCamera.GetComponent<CameraFollow>();
-            cameraFollow.SetTarget(player);
+            cameraFollow.SetTarget(_player);
         }
         // Update is called once per frame
         private void Update()
