@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 45
   description: Decreases the amusement decay
-  powerUpName: Oooh shiny!
+  powerUpName: '- Amusement Decay'
   PowerUpType: 1

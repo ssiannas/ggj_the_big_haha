@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 140
   description: 
-  powerUpName: 
+  powerUpName: '- DMG Received'
   PowerUpType: 3

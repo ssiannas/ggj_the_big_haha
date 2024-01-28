@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 55
   description: 
-  powerUpName: 
+  powerUpName: + Coins
   PowerUpType: 2
-

@@ -48,6 +48,7 @@ namespace the_haha
             InterestMeterController.Instance.IncrementInterestLevelByAmount(data.amusement);
             SmartDialogue.Instance.AddLines(data.dialogue.ToList());
             SmartDialogue.Instance.StartDialogue();
+            AudioManager.Instance.Play("ObjectiveComplete");
         }
     }
 }

@@ -63,6 +63,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlameThrower
       objectReference: {fileID: 0}
+    - target: {fileID: 6262675489745339829, guid: 70a5dacc9cb109241be4f370580fceb5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7294978742924719419, guid: 70a5dacc9cb109241be4f370580fceb5,
         type: 3}
       propertyPath: trapData
@@ -96,6 +101,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Flamethrower
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546700501203281846, guid: 46f2bc4461bd51541bc2fe15e8bba5f3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2890293021196664076, guid: 46f2bc4461bd51541bc2fe15e8bba5f3,
         type: 3}
@@ -151,6 +161,11 @@ PrefabInstance:
         type: 3}
       propertyPath: flameDurationSec
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6883600463862451779, guid: 46f2bc4461bd51541bc2fe15e8bba5f3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
