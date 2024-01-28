@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4187d3d76a05dab4fb65922849857beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 3
+  hitPoints: 100
   actionAction:
     m_Name: Action
     m_Type: 0

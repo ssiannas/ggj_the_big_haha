@@ -40,9 +40,9 @@ namespace the_haha
                 return;
             }
             base.Awake();
-            
             SpawnPlayer();
         }
+        
 
         private IEnumerator MusicCoroutine()
         {
@@ -55,11 +55,11 @@ namespace the_haha
         private void PlayMainMenuMusic()
         {
             AudioManager.Instance.Play("MainMenuIntro");
-            
+            StartCoroutine(MusicCoroutine());
         }
         private void Start()
-        {
-            
+        { 
+            PlayMainMenuMusic(); 
            ShowStartDialogue();
            var audioManager = AudioManager.Instance;
            audioManager.Play("EvilLaugh");

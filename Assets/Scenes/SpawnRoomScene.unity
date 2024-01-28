@@ -8486,13 +8486,13 @@ MonoBehaviour:
     loop: 0
   - source: {fileID: 0}
     clip: {fileID: 8300000, guid: 02d7f44b19c4c8345a623aa1f45f55c9, type: 3}
-    soundName: MainMenuLoop
+    soundName: MainMenuIntro
     volume: 1
     pitch: 1
     loop: 0
   - source: {fileID: 0}
     clip: {fileID: 8300000, guid: e4e26aafbd62093419853183b9bda5c2, type: 3}
-    soundName: MainMenuIntro
+    soundName: MainMenuLoop
     volume: 1
     pitch: 1
     loop: 0
