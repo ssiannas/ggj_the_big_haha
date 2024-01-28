@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace the_haha
 {
@@ -23,6 +25,11 @@ namespace the_haha
         private new void Awake()
         {
             base.Awake();
+            SpawnPlayer();
+        }
+
+        private void SpawnPlayer()
+        {
             _spawnPoint = GameObject.FindWithTag("SpawnPoint").transform;
             var playerRotation = _spawnPoint.rotation;
             var player = Instantiate(_playerPrefab, _spawnPoint.position, playerRotation);
@@ -30,7 +37,6 @@ namespace the_haha
             var cameraFollow = mainCamera.GetComponent<CameraFollow>();
             cameraFollow.SetTarget(player);
         }
-
         // Update is called once per frame
         private void Update()
         {
@@ -39,10 +45,12 @@ namespace the_haha
             _realcurrency += currencyPerTick * Time.deltaTime;
             currency = (int)_realcurrency;
         }
-
+        
+        
         public void EnterDungeon()
         {
-            // Load dungeon scene
+            //hardcoded
+            SceneManager.LoadScene(1);
             // start timers
             _isInDungeon = true;
             _isDecrementing = true;

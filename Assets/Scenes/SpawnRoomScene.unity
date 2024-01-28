@@ -1816,6 +1816,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e78ae63a00f9134badcc6dfb9cee677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scenes:
+  - m_Handle: 0
+  - m_Handle: 0
   currency: 50
   currencyPerTick: 1
   _isInDungeon: 0
