@@ -9,6 +9,6 @@ namespace the_haha
     {
         public int amusement;
         public string objectiveName;
-        public string dialogue;
+        public string[] dialogue;
     }
 }

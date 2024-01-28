@@ -33,7 +33,7 @@ namespace the_haha
             interestMeter.SetActive(true);
         }
         
-        public void DecrementInterestLevelByAmount(int amount=1)
+        private void DecrementInterestLevelByAmount(int amount=1)
         {
             interestLevel -= amount;
             UpdateInterestLevelIndicator();

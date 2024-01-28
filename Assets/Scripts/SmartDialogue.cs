@@ -10,8 +10,6 @@ namespace the_haha
         public TextMeshProUGUI textComponent;
         public List<string> lines;
         public float textSpeed = 0.1f;
-        private int index;
-        // Start is called before the first frame update
         void Start()
         {
             textComponent.text = string.Empty;
@@ -23,43 +21,29 @@ namespace the_haha
         {
             if(Input.GetMouseButtonDown(0))
             {
-                if (lines.Count > 0)
-                {
-                    NextLine();
-                }
-                else
-                {
-                    StopAllCoroutines();
-                    textComponent.text = lines[index];
-                }
+                NextLine();
             }
         }
         
-        public void AddLineEnd(string line)
+        public void AddLines(List<string> newLines)
         {
-            lines.Add(line);
+            lines.AddRange(newLines);
         }
         
-        public void AddLineStart(string line)
-        {
-            lines.Insert(0, line);
-        }
-        
-        public void PopLine()
+        private void PopLine()
         {
             lines.RemoveAt(0);
-            index--;
         }
         
         public void StartDialogue()
         {
             gameObject.SetActive(true);
-            index = 0;
             StartCoroutine(TypeLine());
         }
-        IEnumerator TypeLine()
+        
+        private IEnumerator TypeLine()
         {
-            foreach (char c in lines[index].ToCharArray())
+            foreach (char c in lines[0].ToCharArray())
             {
                 textComponent.text += c;
                 yield return new WaitForSeconds(textSpeed);
@@ -67,11 +51,10 @@ namespace the_haha
             PopLine();
         }
 
-        void NextLine()
+        private void NextLine()
         {
-            if (index < lines.Count - 1)
+            if (lines.Count > 0)
             {
-                index++;
                 textComponent.text = string.Empty;
                 StartCoroutine(TypeLine());
             }
@@ -79,6 +62,7 @@ namespace the_haha
             {
                 textComponent.text = string.Empty;
                 gameObject.SetActive(false);
+                StopAllCoroutines();
             }
 
         }
