@@ -55,7 +55,7 @@ namespace the_haha
 
             _realcurrency += currencyPerTick * Time.deltaTime;
             currency = (int)_realcurrency;
-            showCurrency();
+            //showCurrency();
         }
         
         
@@ -63,6 +63,7 @@ namespace the_haha
         {
             //hardcoded
             SceneManager.LoadScene(1);
+            SpawnPlayer();
             // start timers
             _isInDungeon = true;
             _isDecrementing = true;
