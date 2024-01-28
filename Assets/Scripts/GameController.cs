@@ -106,8 +106,11 @@ namespace the_haha
         {
 
             var coinCounter = GameObject.FindWithTag("Coins");
-            _coinCounter = coinCounter.GetComponentInChildren<TextMeshProUGUI>();
-            _coinCounter.text = currency.ToString();
+            if (coinCounter != null)
+            {
+                _coinCounter = coinCounter.GetComponentInChildren<TextMeshProUGUI>();
+                _coinCounter.text = currency.ToString();
+            }
         }
     }
 }
