@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Flam
   m_EditorClassIdentifier: 
   trapName: Flamethrowther
-  damage: 1
-  amusement: 2
+  damage: 15
+  amusement: 9
