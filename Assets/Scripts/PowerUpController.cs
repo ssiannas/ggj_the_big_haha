@@ -61,7 +61,8 @@ namespace the_haha
                     break;
                 }
                 case PowerUpType.DMG_DOWN:
-                {
+                { 
+                    player.GetComponent<PlayerController>().SetDamageCoef();
                     break;
                 }
             }
