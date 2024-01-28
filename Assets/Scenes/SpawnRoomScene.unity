@@ -7364,8 +7364,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - source: {fileID: 0}
-    clip: {fileID: 0}
-    soundName: Walk
+    clip: {fileID: 8300000, guid: cf85c69b0feb2b843bd8b985a63805db, type: 3}
+    soundName: EvilLaugh
     volume: 0.7
     pitch: 0
     loop: 1
@@ -7606,8 +7606,8 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 2059428829}
   - {fileID: 2015225622}
   - {fileID: 362096878}
-  - {fileID: 2059428829}
   - {fileID: 2116873735}
   - {fileID: 484079898}
