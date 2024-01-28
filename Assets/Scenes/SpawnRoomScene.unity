@@ -2005,7 +2005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currency: 50
-  currencyPerTick: 1
+  currencyPerTick: 5
   _isInDungeon: 0
   _playerPrefab: {fileID: 5599916026682020356, guid: ca50915f4cb82dd4baa29ba1597aebcf,
     type: 3}
@@ -2023,7 +2023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interestLevel: 50
-  interestDecreaseTime: 0.16
+  interestDecreaseTime: 0.3
 --- !u!4 &362096878
 Transform:
   m_ObjectHideFlags: 0
