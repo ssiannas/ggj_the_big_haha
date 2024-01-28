@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace the_haha
@@ -7,6 +8,7 @@ namespace the_haha
     public class PowerUpBehaviour : MonoBehaviour
     {
         public delegate void PlayerCollisionDelegate(PlayerController player);
+
         public event PlayerCollisionDelegate OnPlayerCollisionEnter;
         public event PlayerCollisionDelegate OnPlayerCollisionExit;
 
@@ -35,10 +37,14 @@ namespace the_haha
             meshRenderer.materials = newMaterials.ToArray();
 
             //show floating box
-             FloatingText = GetComponentInParent<PowerUpController>().FloatingTextPrefab;
-             label = Instantiate(FloatingText, (transform.position + new Vector3(0, 1.5f, 0)), Quaternion.LookRotation(Camera.main.transform.forward), transform);
+            var pupController = GetComponentInParent<PowerUpController>();
+            FloatingText = pupController.FloatingTextPrefab;
+            label = Instantiate(FloatingText, (transform.position + new Vector3(0, 1.5f, 0)),
+                Quaternion.LookRotation(Camera.main.transform.forward), transform);
 
-    }
+            label.GetComponent<TextMeshPro>().text =
+                $"{pupController.GetPowerUpData().powerUpName}\nCost: {pupController.GetPowerUpData().cost}\nPress 'E'";
+        }
 
         private void OnCollisionExit(Collision other)
         {

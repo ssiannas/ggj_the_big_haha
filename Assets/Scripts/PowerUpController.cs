@@ -28,43 +28,44 @@ namespace the_haha
         }
 
         public PowerUpData GetPowerUpData() => data;
+
         private void OnPlayerCollisionEnter(PlayerController player)
         {
             // 1. Add to player objectives
-           player.AddPowerUp(this);
+            player.AddPowerUp(this);
         }
 
         private void OnPlayerCollisionExit(PlayerController player)
         {
-           player.RemovePowerUp(this);
+            player.RemovePowerUp(this);
         }
 
         public void ActivatePowerUp(PlayerController player)
         {
             PowerUpType type = data.PowerUpType;
-            switch(type)
+            switch (type)
             {
                 case PowerUpType.SPEED:
-                    {
-                        player.GetComponent<PlayerMovementController>().IncreaseSpeed();
-                        break;
-                    }
+                {
+                    player.GetComponent<PlayerMovementController>().IncreaseSpeed();
+                    break;
+                }
                 case PowerUpType.DECAY_DOWN:
-                    {
-                        InterestMeterController.Instance.ReduceDecayRate();
-                        break;
-                    }
+                {
+                    InterestMeterController.Instance.ReduceDecayRate();
+                    break;
+                }
                 case PowerUpType.MONEY_UP:
-                    {
-                        GameController.Instance.AddCurrencyPerTcik();
-                        break;
-                    }
+                {
+                    GameController.Instance.AddCurrencyPerTcik();
+                    break;
+                }
                 case PowerUpType.DMG_DOWN:
-                    {
-                        break;
-                    }
-
+                {
+                    break;
+                }
             }
+
             Destroy(gameObject);
         }
     }

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 35
   description: 
-  powerUpName: 
+  powerUpName: + Speed
   PowerUpType: 0
