@@ -8478,6 +8478,12 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+  - source: {fileID: 0}
+    clip: {fileID: 8300000, guid: f28097b26ca47cd40bce95a2aabec819, type: 3}
+    soundName: FallingSound
+    volume: 1
+    pitch: 1
+    loop: 0
 --- !u!4 &2059428829
 Transform:
   m_ObjectHideFlags: 0
