@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amusement: 14
   objectiveName: Name Everyone John
-  dialogue: MUAHAHA! You just named everyone on Earth John. How hilarious
+  dialogue:
+  - MUAHAHA! You just named everyone on earth Karen. How villainous!
+  - NOW GO ENTERTAIN ME MORE!
