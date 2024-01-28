@@ -32,5 +32,11 @@ namespace the_haha
            var s = sounds.Find(sound => sound.soundName == soundName);
            s.source.Stop();
        }
+
+       public bool IsPlaying(string soundName)
+       {
+           var s = sounds.Find(sound => sound.soundName == soundName);
+           return s.source.isPlaying;
+       }
     }
 }

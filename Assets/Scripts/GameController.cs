@@ -44,8 +44,22 @@ namespace the_haha
             SpawnPlayer();
         }
 
+        private IEnumerator MusicCoroutine()
+        {
+            while (AudioManager.Instance.IsPlaying("MainMenuIntro"))
+            {
+                yield return null;
+            }
+            AudioManager.Instance.Play("MainMenuLoop");
+        }
+        private void PlayMainMenuMusic()
+        {
+            AudioManager.Instance.Play("MainMenuIntro");
+            
+        }
         private void Start()
         {
+            
            ShowStartDialogue();
            var audioManager = AudioManager.Instance;
            audioManager.Play("EvilLaugh");
