@@ -74,6 +74,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trapdoor
       objectReference: {fileID: 0}
+    - target: {fileID: 4094199552541217846, guid: 41b82746003bea5489cc04c71e6b8271,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318993752136011341, guid: 41b82746003bea5489cc04c71e6b8271,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6841347369830620450, guid: 41b82746003bea5489cc04c71e6b8271,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140249655123089413, guid: 41b82746003bea5489cc04c71e6b8271,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 9183863007537016977, guid: 41b82746003bea5489cc04c71e6b8271,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -147,6 +172,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FloorTrap
+      objectReference: {fileID: 0}
+    - target: {fileID: 6262675489745339829, guid: 70a5dacc9cb109241be4f370580fceb5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7294978742924719419, guid: 70a5dacc9cb109241be4f370580fceb5,
         type: 3}
