@@ -66,7 +66,6 @@ namespace the_haha
                     break;
                 }
             }
-
             Destroy(gameObject);
         }
     }

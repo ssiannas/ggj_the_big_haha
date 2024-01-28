@@ -70,6 +70,8 @@ namespace the_haha
             {
                 objective.CompleteObjective();
             }
+
+            var toRemove = new List<PowerUpController>(_powerups);
             foreach (var powerup in _powerups)
             {
 
@@ -79,6 +81,11 @@ namespace the_haha
                     GameController.Instance.SetCoins(coins - powerup.GetPowerUpData().cost);
                     powerup.ActivatePowerUp(this);
                 }             
+            }
+            
+            foreach (var powerup in toRemove)
+            {
+                RemovePowerUp(powerup);
             }
         }
 
