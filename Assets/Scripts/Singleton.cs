@@ -6,7 +6,7 @@ namespace the_haha
 {
     public abstract class Singleton<T> : MonoBehaviour
     {
-        private static T _instance;
+        protected static T _instance;
         public static T Instance => _instance;
 
         protected void Awake()

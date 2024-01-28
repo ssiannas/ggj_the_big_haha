@@ -19,13 +19,14 @@ namespace the_haha
         private new void Awake()
         {
             base.Awake();
-            var interestMeter = GameObject.FindWithTag("InterestMeter");
-
-            _interestLevelIndicator = interestMeter.GetComponentInChildren<TextMeshProUGUI>();
+        }
+        
+        public void SetUpInterestMeter()
+        {
+             var interestMeter = GameObject.FindWithTag("InterestMeter");
             _timeToNextInterestDecrease = interestDecreaseTime;
             UpdateInterestLevelIndicator();
         }
-        
         public void ShowInterestMeter()
         {
             var interestMeter = GameObject.FindWithTag("InterestMeter");
@@ -62,12 +63,9 @@ namespace the_haha
                 GameController.Instance.GameOver();
             }
             var interestMeter = GameObject.FindWithTag("InterestMeter");
-
             interestMeter.GetComponent<ProgressBar>().SetProgress((float)interestLevel / MaxInterestLevel);
             //ProgressBar.Instance.SetProgress((float)interestLevel/MaxInterestLevel);
-
         }
-
 
         public void ReduceDecayRate()
         {

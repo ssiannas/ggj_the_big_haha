@@ -24,11 +24,6 @@ namespace the_haha
 
         private Animator _animator;
 
-        private void Awake()
-        {
-            Physics.gravity *= 2;
-        }
-
         private bool IsWalking
         {
             set

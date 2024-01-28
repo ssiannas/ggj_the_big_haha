@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ namespace the_haha
     {
         public delegate void GameOverDelegate();
         public event GameOverDelegate OnGameOver;
-        private bool _isDecrementing = true;
+        private bool _isDecrementing = false;
         
         [SerializeField, InspectorName("Haha bucks")]
         public int currency = 50;
@@ -32,6 +33,10 @@ namespace the_haha
 
         private new void Awake()
         {
+            if (_instance != null)
+            {
+                return;
+            }
             base.Awake();
             SpawnPlayer();
         }
@@ -52,24 +57,57 @@ namespace the_haha
         {
             if (_isPaused) return;
             if (_isDecrementing) InterestMeterController.Instance.DecrementInterestLevelTick();
-
-            _realcurrency += currencyPerTick * Time.deltaTime;
-            currency = (int)_realcurrency;
-            //showCurrency();
+            if (_isInDungeon) IncrementCurrency();
+            showCurrency();
         }
         
+        private void IncrementCurrency()
+        {
+            _realcurrency += currencyPerTick * Time.deltaTime;
+            currency = (int)_realcurrency;
+        }
+        private void OnDungeonEntered()
+        {
+            SpawnPlayer();
+            // start timers
+            InterestMeterController.Instance.SetUpInterestMeter();
+            _isInDungeon = true;
+            _isDecrementing = true;
+            InterestMeterController.Instance.ShowInterestMeter(); 
+        }
+        private IEnumerator EnterDungeonCoroutine()
+        {
+            //hardcoded
+            var asyncLoadLevel = SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
+            while (!asyncLoadLevel.isDone){
+                yield return null;
+            } 
+            OnDungeonEntered();
+        }
         
         public void EnterDungeon()
         {
-            //hardcoded
-            SceneManager.LoadScene(1);
-            SpawnPlayer();
-            // start timers
-            _isInDungeon = true;
-            _isDecrementing = true;
-           InterestMeterController.Instance.ShowInterestMeter(); 
+            StartCoroutine(EnterDungeonCoroutine());
         }
 
+        private void OnSpawnEntered()
+        {
+            SpawnPlayer();
+            _isInDungeon = false;
+            _isDecrementing = false;
+        }
+        private IEnumerator EnterSpawnCoroutine()
+        {
+           var loadSpawnAsync = SceneManager.LoadSceneAsync(0, LoadSceneMode.Single);
+           while (!loadSpawnAsync.isDone) yield return null;
+           OnSpawnEntered();
+        }
+        
+        private void EnterSpawn()
+        {
+            StartCoroutine(EnterSpawnCoroutine());
+        }
+        
         public void Pause()
         {
             _isPaused = true;
@@ -84,6 +122,7 @@ namespace the_haha
         {
             _isDecrementing = false;
             OnGameOver?.Invoke();
+            EnterSpawn(); 
         }
 
         public int GetCoins()

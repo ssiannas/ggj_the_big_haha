@@ -30,8 +30,6 @@ namespace the_haha
             hitPoints -= amount * damagecoef;
 
             var interestMeter = GameObject.FindWithTag("HP");
-            Debug.Log(hitPoints.ToString());
-
             interestMeter.GetComponent<ProgressBar>().SetProgress(hitPoints / MAX_HP);
 
             if (hitPoints <= 0)
@@ -42,6 +40,7 @@ namespace the_haha
 
         private void OnDeath()
         {
+            Destroy(gameObject);
             GameController.Instance.GameOver();
         }
 
