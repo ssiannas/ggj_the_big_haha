@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 using TMPro;
-
+using UnityEditor.Rendering;
 using UnityEngine.SceneManagement;
 
 
@@ -38,9 +39,17 @@ namespace the_haha
                 return;
             }
             base.Awake();
+            
             SpawnPlayer();
+            ShowStartDialogue();
         }
 
+        private void ShowStartDialogue()
+        {   
+            SmartDialogue.Instance.AddLines(Constants.StartDialogue.ToList());
+            SmartDialogue.Instance.StartDialogue();
+        }
+        
         private void SpawnPlayer()
         {
             var sp = GameObject.FindWithTag("SpawnPoint");
