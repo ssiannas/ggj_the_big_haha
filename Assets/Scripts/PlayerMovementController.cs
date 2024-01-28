@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,11 @@ namespace the_haha
         private Vector3 _direction;
 
         private Animator _animator;
+
+        private void Awake()
+        {
+            Physics.gravity *= 2;
+        }
 
         private bool IsWalking
         {
@@ -77,8 +83,9 @@ namespace the_haha
 
         private void FixedUpdate()
         {
-            _direction.y = _rigidBody.velocity.y/moveSpeed;
-            _rigidBody.velocity = moveSpeed * _direction;
+            var velocity = moveSpeed * _direction;
+            var rbVelocity = _rigidBody.velocity;
+            _rigidBody.velocity = new Vector3(velocity.x, rbVelocity.y, velocity.z);
             
             if (_direction != Vector3.zero)
             {

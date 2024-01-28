@@ -1,23 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 namespace the_haha
-{   public class SmoothCameraFollow : MonoBehaviour
+{
+
+    public class CameraFollow : MonoBehaviour
     {
-        private Vector3 _offset;
-        [SerializeField] private Transform target;
-        [SerializeField] private float smoothTime;
-        private Vector3 _currentVelocity = Vector3.zero;
+        public Transform player;  // Reference to the player's transform
+        private Vector3 _velocity = Vector3.zero;
+        private Vector3 _offset = new Vector3(0, 7, -3);
 
-
-        private void Awake() => _offset = transform.position - target.position;
-
-        private void LateUpdate()
+        private void Awake()
         {
-            Vector3 targetPosition = target.position + _offset;
-            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref _currentVelocity, smoothTime);
+            transform.rotation = Quaternion.Euler(60, 0, 0);
         }
 
+        void LateUpdate()
+        {
+            if (!player) return;
+            var pos = player.position;
+            Vector3 desiredPosition = new Vector3(pos.x + _offset.x, _offset.y, pos.z + _offset.z);
+            transform.position = desiredPosition;
+        }
     }
+
 }
