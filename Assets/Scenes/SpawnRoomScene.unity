@@ -2023,7 +2023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interestLevel: 50
-  interestDecreaseTime: 5
+  interestDecreaseTime: 0.16
 --- !u!4 &362096878
 Transform:
   m_ObjectHideFlags: 0
