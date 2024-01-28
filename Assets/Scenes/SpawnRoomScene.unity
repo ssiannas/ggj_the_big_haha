@@ -8495,7 +8495,7 @@ MonoBehaviour:
     soundName: MainMenuLoop
     volume: 1
     pitch: 1
-    loop: 0
+    loop: 1
 --- !u!4 &2059428829
 Transform:
   m_ObjectHideFlags: 0
