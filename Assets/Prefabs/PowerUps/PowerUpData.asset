@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ddd22abd24b57469acec05dc8c46c2, type: 3}
   m_Name: PowerUpData
   m_EditorClassIdentifier: 
-  cost: 0
-  description: 
-  powerUpName: 
+  cost: 50
+  description: speed
+  powerUpName: SpeedBoost
+  PowerUpType: 0

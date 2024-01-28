@@ -20,7 +20,7 @@ namespace the_haha
         {
             base.Awake();
             var interestMeter = GameObject.FindWithTag("InterestMeter");
-            interestMeter.SetActive(false);
+            
             // TODO: Should eplace with a proper class
             _interestLevelIndicator = interestMeter.GetComponentInChildren<TextMeshProUGUI>();
             _timeToNextInterestDecrease = interestDecreaseTime;
@@ -62,8 +62,17 @@ namespace the_haha
             {
                 GameController.Instance.GameOver();
             }
-            if (_interestLevelIndicator)
-                _interestLevelIndicator.text = interestLevel.ToString();
+            if (!_interestLevelIndicator)
+            {
+                //_interestLevelIndicator.text = interestLevel.ToString();
+
+                //ADD PROGRESS BAR UPDATES
+                //Debug.Log("test");
+
+                ProgressBar.Instance.SetProgress((float)interestLevel/MaxInterestLevel);
+
+            }
+
         }
 
 
