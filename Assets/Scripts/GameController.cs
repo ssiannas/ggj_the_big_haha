@@ -47,7 +47,8 @@ namespace the_haha
         private void Start()
         {
            ShowStartDialogue();
-           AudioManager.Instance.Play("EvilLaugh"); 
+           var audioManager = AudioManager.Instance;
+           audioManager.Play("EvilLaugh");
         }
 
         private void ShowStartDialogue()

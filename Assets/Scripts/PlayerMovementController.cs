@@ -52,6 +52,7 @@ namespace the_haha
             if (_playerState == PlayerState.Walking) return;
             _animator.SetBool("isWalking", true);
             _playerState = PlayerState.Walking;
+            AudioManager.Instance.Play("Walk");
         }
         
         private void HandleIdleState()
@@ -59,6 +60,7 @@ namespace the_haha
             if (_playerState == PlayerState.Idle) return;
             _animator.SetBool("isWalking", false);
             _playerState = PlayerState.Idle;
+            AudioManager.Instance.Stop("Walk");
         }
         
         void OnMove(InputValue pos)

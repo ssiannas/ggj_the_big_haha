@@ -10,6 +10,7 @@ namespace the_haha
 
        private new void Awake()
        {
+           base.Awake();
            foreach (var s in sounds)
            {
               s.source = gameObject.AddComponent<AudioSource>();
