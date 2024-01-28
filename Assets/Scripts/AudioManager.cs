@@ -4,18 +4,33 @@ using UnityEngine;
 
 namespace the_haha
 {
-    public class AudioManager : MonoBehaviour
+    public class AudioManager : Singleton<AudioManager>
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+       public List<Sound> sounds;
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
+       private new void Awake()
+       {
+           base.Awake();
+           foreach (var s in sounds)
+           {
+              s.source = gameObject.AddComponent<AudioSource>();
+              s.source.clip = s.clip;
+              s.source.volume = s.volume;
+              s.source.pitch = s.pitch;
+              s.source.loop = s.loop;
+           }
+       }
+       
+       public void Play(string soundName)
+       {
+           var s = sounds.Find(sound => sound.soundName == soundName);
+           s.source.Play();
+       }
+       
+       public void Stop(string soundName)
+       {
+           var s = sounds.Find(sound => sound.soundName == soundName);
+           s.source.Stop();
+       }
     }
 }

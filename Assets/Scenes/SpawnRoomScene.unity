@@ -8233,6 +8233,69 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 486519280}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2059428827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2059428829}
+  - component: {fileID: 2059428828}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2059428828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059428827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae6d21359d9b6f44ab2f07f6f0aae9b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - source: {fileID: 0}
+    clip: {fileID: 8300000, guid: cf85c69b0feb2b843bd8b985a63805db, type: 3}
+    soundName: EvilLaugh
+    volume: 1
+    pitch: 1
+    loop: 0
+  - source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 43a83b401a944eb48b217d5bc5be921b, type: 3}
+    soundName: Walk
+    volume: 1
+    pitch: 1
+    loop: 1
+  - source: {fileID: 0}
+    clip: {fileID: 8300000, guid: fec5825c4c51b58448831a3c6b0ee9c6, type: 3}
+    soundName: ObjectiveComplete
+    volume: 1
+    pitch: 1
+    loop: 0
+--- !u!4 &2059428829
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059428827}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.1672578, y: 2.475076, z: 5.45097}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2052491171
 GameObject:
   m_ObjectHideFlags: 0
@@ -8524,6 +8587,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 2059428829}
   - {fileID: 362096878}
   - {fileID: 2116873735}
   - {fileID: 484079898}

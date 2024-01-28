@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +42,13 @@ namespace the_haha
             base.Awake();
             
             SpawnPlayer();
-            ShowStartDialogue();
+        }
+
+        private void Start()
+        {
+           ShowStartDialogue();
+           var audioManager = AudioManager.Instance;
+           audioManager.Play("EvilLaugh");
         }
 
         private void ShowStartDialogue()
