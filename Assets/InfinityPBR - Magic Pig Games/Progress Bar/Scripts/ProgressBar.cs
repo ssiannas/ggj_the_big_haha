@@ -5,7 +5,7 @@ using UnityEngine;
 namespace the_haha
 {
     [Serializable]
-    public class ProgressBar : Singleton<ProgressBar>
+    public class ProgressBar : MonoBehaviour
     {
         [Header("Overlay Bar")]
         [Tooltip("This is the bar that moves to show progress, covering the fill bar.")]

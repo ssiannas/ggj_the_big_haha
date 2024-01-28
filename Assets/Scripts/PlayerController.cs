@@ -12,6 +12,7 @@ namespace the_haha
     {
         [SerializeField, InspectorName("Hit Points")]
         private float hitPoints = 100.0f;
+        private float MAX_HP;
         private float damagecoef = 1.0f;
         private List<ObjectiveController> _objectives;
         private List<PowerUpController> _powerups;
@@ -21,11 +22,18 @@ namespace the_haha
         {
             _objectives = new List<ObjectiveController>();
             _powerups = new List<PowerUpController>();
+            MAX_HP = hitPoints;
         }
 
         public void Damage(int amount = 1)
         {
             hitPoints -= amount * damagecoef;
+
+            var interestMeter = GameObject.FindWithTag("HP");
+            Debug.Log(hitPoints.ToString());
+
+            interestMeter.GetComponent<ProgressBar>().SetProgress(hitPoints / MAX_HP);
+
             if (hitPoints <= 0)
             {
                 OnDeath();
