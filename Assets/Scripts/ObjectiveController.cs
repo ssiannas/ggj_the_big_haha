@@ -11,9 +11,11 @@ namespace the_haha
     {
         [SerializeField, InspectorName("Objective Data")]
         private ObjectiveData data;
-        private bool _isCompleted = false;
+        public bool _isCompleted = false;
         [SerializeField, InspectorName("Outline Material")]
         private Material _outlineMaterial;
+        //[SerializeField, InspectorName("Floating Text Prefab")]
+        public GameObject FloatingTextPrefab;
         
         private void Awake()
         {

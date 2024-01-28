@@ -13,6 +13,9 @@ namespace the_haha
         private Material _outlineMaterial;
         private List<Material> _originalMaterials;
 
+        private GameObject FloatingText;
+        private GameObject label;
+
         private void Awake()
         {
             _originalMaterials = new List<Material>(GetComponent<MeshRenderer>().materials);
@@ -30,7 +33,12 @@ namespace the_haha
             var newMaterials = new List<Material>(_originalMaterials);
             newMaterials.Add(_outlineMaterial);
             meshRenderer.materials = newMaterials.ToArray();
-        }
+
+            //show floating box
+             FloatingText = GetComponentInParent<PowerUpController>().FloatingTextPrefab;
+             label = Instantiate(FloatingText, (transform.position + new Vector3(0, 1.5f, 0)), Quaternion.LookRotation(Camera.main.transform.forward), transform);
+
+    }
 
         private void OnCollisionExit(Collision other)
         {
@@ -42,6 +50,8 @@ namespace the_haha
             if (!(_outlineMaterial != null)) return;
             var meshRenderer = GetComponent<MeshRenderer>();
             meshRenderer.materials = _originalMaterials.ToArray();
+            //disable floating box
+            if (label != null) Destroy(label);
         }
 
         public void SetOutlineMaterial(Material outlineMaterial)

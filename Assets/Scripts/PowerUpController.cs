@@ -13,6 +13,7 @@ namespace the_haha
         [SerializeField, InspectorName("Outline Material")]
         private Material _outlineMaterial;
 
+        public GameObject FloatingTextPrefab;
 
         private void Awake()
         {
